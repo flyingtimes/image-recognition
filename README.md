@@ -8,7 +8,8 @@
 
 curl -s https://raw.githubusercontent.com/flyingtimes/image-recognition/master/one_step_install.sh|bash
 
-这是一个开源的脚本，会自动帮你把源代码，下载下来，并且安装docker，下载相关的docker镜像。tensorflow所需的所有组件都已经在docker中预先准备好了，您只要运行程序就行了
+这是一个脚本，会自动帮你把源代码下载下来，如果没有安装docker，会自动安装docker，并下载相关的docker镜像。tensorflow所需的所有组件都已经在docker中预先准备好了，您只要运行程序就行了
+#### 注意，由于这个docker镜像是armv7专用的，因此在其他x86机器上运行是不行的
 
 ## 运行程序
 
