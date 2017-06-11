@@ -23,3 +23,8 @@ docker run -it -v $PWD:/images clarkchan/rpi-tensorflow-imagenet python /images/
 	python /images/classify_image.py   在镜像中运行classify_image.py
 	--image_file=/images/$1            要处理的图片文件名,文件名从命令行获取
 	--num_top_predictions=1            返回可能性最大的‘1’个推测结果
+
+#### build_docker目录说明：
+这个文件夹是用来创建docker镜像文件本身的，如果仅仅是使用这个镜像文件来开发python程序，则可以忽略这个文件夹，直接从dockerhub上下载镜像就足够用了
+
+这里面有两个镜像，一个是rpi-tensorflow, 这是一个基础文件镜像，包含了rpi版本的ubuntu，还有tensorflow安装程序；另外一个是rpi-tensorflow-imagenet,这个在rpi-tensorflow基础上，增加了将结果转换为中文的translation插件，以及将谷歌最新训练好的模型预先放置到tmp目录下面。
