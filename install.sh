@@ -2,10 +2,10 @@
 
 if [ ! -f "/proc/cpuinfo" ]; then
   echo '只能在树莓派安装本程序.'
-#  exit
+  exit
 fi
 # 安装docker
-if not which docker 2>/dev/null;then
+if ! hash docker 2>/dev/null;then
   echo '没有检测到docker，需要安装docker,请等待......'
   curl -sSL https://get.docker.com | sh
   echo 'docker 安装完毕.' 
