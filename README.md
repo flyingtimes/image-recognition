@@ -6,4 +6,8 @@
 
 在树莓派上运行
 
-curl -s https://raw.githubusercontent.com/flyingtimes/image-recognition/master/install.sh|bash
+curl -s https://raw.githubusercontent.com/flyingtimes/image-recognition/master/one_step_install.sh|bash
+
+## 运行程序
+bash imgdetect.sh [你的图片文件名]
+
