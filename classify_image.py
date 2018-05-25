@@ -45,7 +45,7 @@ import tarfile
 import numpy as np
 from six.moves import urllib
 import tensorflow as tf
-from translation import baidu, google, youdao, iciba
+from translation import baidu, google, youdao, iciba, TranslateError, ConnectError
 import fileinput
 FLAGS = None
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -166,7 +166,10 @@ def run_inference_on_image(image):
     for node_id in top_k:
       human_string = node_lookup.id_to_string(node_id)
       score = predictions[node_id]
-      print('%s(%s)---(Matching = %.5f)' % (human_string,baidu(human_string,dst='zh').encode('utf-8'), score))
+      try:
+        print('%s(%s)---(Matching = %.5f)' % (human_string, iciba('Also known as ' + human_string, dst='zh').encode('utf-8'), score))
+      except TranslateError, ConnectError:
+        print('%s---(Matching = %.5f)' % (human_string, score))
 
 
 def maybe_download_and_extract():
