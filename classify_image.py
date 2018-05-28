@@ -167,7 +167,10 @@ def run_inference_on_image(image):
       human_string = node_lookup.id_to_string(node_id)
       score = predictions[node_id]
       try:
-        print('%s(%s)---(Matching = %.5f)' % (human_string, iciba('Also known as ' + human_string, dst='zh').encode('utf-8'), score))
+        human_string_zh = iciba('Also known as ' + human_string, dst='zh')
+        if sys.version_info.major <= 2:
+          human_string_zh = human_string_zh.encode('utf-8')
+        print('%s(%s)---(Matching = %.5f)' % (human_string, human_string_zh, score))
       except (TranslateError, ConnectError):
         print('%s---(Matching = %.5f)' % (human_string, score))
 
