@@ -7,7 +7,7 @@ fi
 # 安装docker
 if ! hash docker 2>/dev/null;then
   echo '没有检测到docker，需要安装docker,请等待......'
-  curl -sSL https://get.docker.com | sh
+  sudo apt-get install docker-ce -y
   echo 'docker 安装完毕.' 
 else
   echo '检测到已经安装docker.'
