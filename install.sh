@@ -15,7 +15,7 @@ fi
 # 安装镜像文件
 if [[ "$(docker images -q clarkchan/rpi-tensorflow-imagenet 2> /dev/null)" == "" ]]; then
   echo '正在下载安装镜像文件(大小约1GB),请等待......'
-  docker pull clarkchan/rpi-tensorflow-imagenet
+  sudo docker pull clarkchan/rpi-tensorflow-imagenet
   echo '镜像文件安装完毕.'
 else
   echo '镜像文件clarkchan/rpi-tensorflow-imagenet已经存在,可以直接运行.'
